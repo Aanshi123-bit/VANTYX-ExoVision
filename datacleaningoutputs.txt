@@ -1,0 +1,78 @@
+Initial Shape: (39554, 289)
+Columns selected: ['pl_name', 'disc_method', 'disc_year', 'disc_facility', 'pl_orbper', 'pl_rade', 'pl_masse', 'pl_eqt', 'st_teff', 'st_rad', 'st_mass', 'sy_dist']
+
+Shape after aggregation (unique planets): (6158, 12)
+
+Missing value % per column (post-aggregation):
+pl_masse     61.7
+pl_eqt       25.5
+pl_rade      25.3
+st_rad       10.3
+st_teff       7.9
+pl_orbper     5.6
+sy_dist       2.1
+st_mass       0.7
+disc_year     0.0
+dtype: float64
+
+Dropping columns with >50% missing values: ['pl_masse']
+
+Saved: clean_with_names.csv
+Class Distribution (disc_method):
+disc_method
+Transit                          4523
+Radial Velocity                  1180
+Microlensing                      278
+Imaging                            94
+Transit Timing Variations          40
+Eclipse Timing Variations          17
+Orbital Brightness Modulation       9
+Pulsar Timing                       8
+Astrometry                          6
+Pulsation Timing Variations         2
+Disk Kinematics                     1
+Name: count, dtype: int64
+
+Imbalance ratio (max/min): 4523x
+  Warning severe class imbalance detected!
+  Use class_weight='balanced' in your classifier.
+
+  Dropping rare classes with less than 5 samples: ['Pulsation Timing Variations', 'Disk Kinematics']
+  Shape after dropping rare classes: (6155, 11)
+
+Converted 11 bool columns to int (0/1).
+
+Warning Low-variance columns detected (may be over-imputed): ['disc_facility_HATSouth', 'disc_facility_K2', 'disc_facility_KMTNet', 'disc_facility_Kepler', 'disc_facility_La Silla Observatory', 'disc_facility_Multiple Observatories', 'disc_facility_OGLE', 'disc_facility_Other', 'disc_facility_SuperWASP', 'disc_facility_Transiting Exoplanet Survey Satellite (TESS)', 'disc_facility_W. M. Keck Observatory']
+
+Train size: (4924, 19)  |  Test size: (1231, 19)
+
+Saved: ml_ready_data.csv
+FINAL DATASET SUMMARY
+Shape         : (6155, 20)
+Features      : 19
+Target classes: 9
+Null values   : 0
+Bool columns  : 0 remaining (should be 0)
+
+Column dtypes:
+disc_year                                                     float64
+pl_orbper                                                     float64
+pl_rade                                                       float64
+pl_eqt                                                        float64
+st_teff                                                       float64
+st_rad                                                        float64
+st_mass                                                       float64
+sy_dist                                                       float64
+disc_facility_HATSouth                                          int64
+disc_facility_K2                                                int64
+disc_facility_KMTNet                                            int64
+disc_facility_Kepler                                            int64
+disc_facility_La Silla Observatory                              int64
+disc_facility_Multiple Observatories                            int64
+disc_facility_OGLE                                              int64
+disc_facility_Other                                             int64
+disc_facility_SuperWASP                                         int64
+disc_facility_Transiting Exoplanet Survey Satellite (TESS)      int64
+disc_facility_W. M. Keck Observatory                            int64
+disc_method                                                    object
+dtype: object
